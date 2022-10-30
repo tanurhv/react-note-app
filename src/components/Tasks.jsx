@@ -1,6 +1,9 @@
 import React from 'react'
+import Task from './Task'
+import tasks from '../data'
 
 const Tasks = () => {
+    const data = tasks()
     return (
         <div className="main">
             <div className='task-box'>
@@ -8,19 +11,9 @@ const Tasks = () => {
                     <div className='task-undo-modal'>
                         <button type='button'>Undo</button>
                     </div>
-
-                    <div className='task-box-child'>
-                        <div>
-                            <div>
-                                <h3 >Title </h3>
-                                <div className="task-date">25/10/2022</div>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                        <div className='delete-box'>
-                        </div>
-                    </div>
+                    {data.map((task, index) => (
+                        <Task key={task.id} task={task} index={index} />
+                    ))}
                 </div>
             </div>
         </div>
