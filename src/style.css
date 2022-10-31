@@ -130,6 +130,38 @@
     color: #000;
 }
 
+.delete-box {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: flex-end;
+    background-image: repeating-linear-gradient(-45deg,
+            white 0 20px,
+            var(--main-color) 20px 40px);
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+    z-index: -1;
+    animation: deleteProgress 10s linear infinite reverse;
+    background-size: 400% 400%;
+}
+
+@keyframes deleteProgress {
+    from {
+        background-position: 50% 100%;
+    }
+
+    to {
+        background-position: 200% 50%;
+    }
+}
+
+.delete-box-icons {
+    position: absolute;
+    z-index: 11000;
+    top: 1em;
+    right: 1em;
+}
+
 .task-box-child {
     position: relative;
     isolation: isolate;
@@ -140,6 +172,113 @@
 .main-heading {
     font-size: 2rem;
     font-weight: bold;
+}
+
+.btn {
+    border: 0;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: aliceblue;
+    /* padding: 0.25rem 2rem; */
+    width: 70px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    filter: brightness(80%);
+}
+
+.form {
+    animation: fillIn 1s linear forwards;
+}
+
+.form div:not(:nth-last-child(2)) {
+    margin: 1rem auto;
+}
+
+.form label {
+    font-weight: 500;
+}
+
+.form input[type="text"] {
+    width: 100%;
+    padding: 0.4rem 0.3rem;
+    margin: 0.25rem auto;
+    outline: none;
+}
+
+.form input[type="checkbox"] {
+    margin-left: 1rem;
+    position: relative;
+    top: 1px;
+    accent-color: var(--main-color);
+}
+
+.form input[type="submit"] {
+    width: 100%;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 0.4rem 0;
+    border: 0;
+    outline: none;
+    background-color: var(--main-color, #151515);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.form input[type="submit"]:hover {
+    filter: brightness(80%);
+}
+
+@keyframes fillIn {
+    0% {
+        opacity: 0;
+    }
+
+    70%,
+    100% {
+        opacity: 1;
+    }
+}
+
+table,
+tr {
+    border: 3px solid var(--main-color);
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+table th,
+table td {
+    padding: 0.6rem;
+    border-left: 1px solid var(--main-color);
+}
+
+table th {
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s ease-in-out;
+}
+
+table th:hover {
+    background-color: #aaa;
+}
+
+table td {
+    font-size: 0.9rem;
+    user-select: none;
+    transition: 0.2s ease-in-out;
+}
+
+table tr:nth-child(even) {
+    background-color: #ccc;
+}
+
+table tr:hover {
+    background-color: #ddd;
 }
 
 header {
