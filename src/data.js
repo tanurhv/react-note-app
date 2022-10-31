@@ -1,4 +1,4 @@
-export default function tasks() {
+export default function tasksData() {
   return [{
     "task": "ClassWork",
     "date": "25/12/2022",
